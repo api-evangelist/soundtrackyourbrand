@@ -1,26 +1,135 @@
 aid: soundtrackyourbrand
-name: soundtrackyourbrand
-description: soundtrackyourbrand is a company surfaced as a portfolio company of balderton-capital and
-  added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/soundtrackyourbrand.png
+name: Soundtrack Your Brand
+description: >-
+  Soundtrack Your Brand (now branded simply "Soundtrack", soundtrack.io) is a
+  business music streaming service that provides licensed background music for
+  physical spaces such as retail stores, restaurants, cafes, hotels and gyms.
+  Originally spun out of Spotify, the company curates and schedules music across
+  a customer's locations and sound zones, and exposes a public GraphQL API
+  (api.soundtrackyourbrand.com/v2) that lets developers build display, control
+  and monitoring apps on top of Soundtrack — reading now-playing state,
+  controlling playback (play/pause/skip/volume) on sound zones, managing
+  playlists, schedules and music libraries, and subscribing to real-time
+  updates. The API is free for paying Soundtrack customers and authenticates
+  with an API token. Surfaced originally as a portfolio company of
+  Balderton Capital.
 url: https://raw.githubusercontent.com/api-evangelist/soundtrackyourbrand/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - balderton-capital
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: has-public-api
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 12
+  pass: local-v1
 tags:
 - Company
-apis: []
+- Music
+- Streaming
+- Business Music
+- Media
+- Entertainment
+- GraphQL
+- Playback Control
+- Retail
+apis:
+- name: Soundtrack API
+  description: >-
+    Soundtrack's public GraphQL API for building display, control and monitoring
+    apps on top of the Soundtrack business music service. Query now-playing and
+    schedule state, control playback on sound zones (play, pause, skip, volume,
+    queue), manage playlists, schedules and music libraries, and subscribe to
+    real-time updates for accounts, locations, sound zones, devices and
+    now-playing. GraphQL over a single POST endpoint; introspection is enabled.
+  humanURL: https://api.soundtrackyourbrand.com/v2/docs
+  baseURL: https://api.soundtrackyourbrand.com/v2
+  tags:
+  - GraphQL
+  - Music
+  - Playback Control
+  properties:
+  - type: Documentation
+    url: https://api.soundtrackyourbrand.com/v2/docs
+  - type: APIReference
+    url: https://api.soundtrackyourbrand.com/v2/docs
+  - type: GettingStarted
+    url: https://api.soundtrackyourbrand.com/v2/docs/the-basics
+  - type: GraphQL
+    url: https://api.soundtrackyourbrand.com/v2
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/soundtrackyourbrand-domain-security.yml
 - type: Website
-  url: https://www.soundtrackyourbrand.com/
+  url: https://www.soundtrack.io/
+- type: DeveloperPortal
+  url: https://api.soundtrackyourbrand.com/v2/docs
+- type: Documentation
+  url: https://api.soundtrackyourbrand.com/v2/docs
+- type: APIReference
+  url: https://api.soundtrackyourbrand.com/v2/docs
+- type: GettingStarted
+  url: https://api.soundtrackyourbrand.com/v2/docs/the-basics
+- type: StatusPage
+  url: https://status.soundtrack.io/
+- type: Support
+  url: https://help.soundtrack.io/
+- type: GitHubOrganization
+  url: https://github.com/soundtrackyourbrand
+- type: SignUp
+  url: https://app.soundtrack.io/signup/
+- type: Login
+  url: https://app.soundtrack.io/
+- type: Pricing
+  url: https://www.soundtrack.io/pricing/
+- type: PrivacyPolicy
+  url: https://www.soundtrack.io/legal/privacy-policy/
+- type: TermsOfService
+  url: https://www.soundtrack.io/legal/
+- type: Blog
+  url: https://www.soundtrack.io/blog/
+- type: Authentication
+  url: authentication/soundtrackyourbrand-authentication.yml
+- type: Conventions
+  url: conventions/soundtrackyourbrand-conventions.yml
+- type: Lifecycle
+  url: lifecycle/soundtrackyourbrand-lifecycle.yml
+- type: ErrorCatalog
+  url: errors/soundtrackyourbrand-problem-types.yml
+- type: Packages
+  url: packages/soundtrackyourbrand-packages.yml
+- type: LLMsTxt
+  url: llms/soundtrackyourbrand-llms.txt
+- type: WellKnown
+  url: well-known/soundtrackyourbrand-well-known.yml
+- type: Conformance
+  url: conformance/soundtrackyourbrand-conformance.yml
+- type: AsyncAPI
+  url: asyncapi/soundtrackyourbrand-subscriptions-asyncapi.yml
+- type: DataModel
+  url: data-model/soundtrackyourbrand-data-model.yml
+- type: MCPServer
+  url: mcp/soundtrackyourbrand-mcp.yml

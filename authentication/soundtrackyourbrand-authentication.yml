@@ -1,0 +1,38 @@
+generated: '2026-07-21'
+method: searched
+source: https://api.soundtrackyourbrand.com/v2/docs/the-basics
+docs: https://api.soundtrackyourbrand.com/v2/docs
+summary:
+  types: [http-bearer, token]
+  api_key_in: [header]
+  oauth2_flows: []
+  notes: >-
+    Soundtrack API is a GraphQL API authenticated with an API token passed in
+    the HTTP Authorization header. The API is free for paying Soundtrack
+    customers. There is also an in-API login flow (loginUser / loginDevice /
+    generateOTP / loginOTP / refreshLogin mutations) that returns a token for
+    apps acting on behalf of a user or device, as an alternative to a
+    pre-provisioned API token.
+schemes:
+- name: apiToken
+  type: http
+  scheme: bearer
+  in: header
+  header: Authorization
+  description: >-
+    API token issued from the Soundtrack account settings
+    (https://app.soundtrack.io/accounts/_/settings/api) or requested via the
+    apiAccessRequest mutation / partner program. Sent as
+    `Authorization: Basic <token>` per the Soundtrack docs; the token scopes
+    access to the account(s) it was issued for.
+  token_management: https://app.soundtrack.io/accounts/_/settings/api
+login_flow:
+  description: >-
+    Alternative to a static API token — authenticate a user or device in-band
+    and receive a session token.
+  operations:
+  - loginUser
+  - loginDevice
+  - generateOTP
+  - loginOTP
+  - refreshLogin

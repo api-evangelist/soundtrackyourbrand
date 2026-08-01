@@ -1,0 +1,123 @@
+asyncapi: 3.0.0
+info:
+  title: Soundtrack API — Real-time Subscriptions
+  version: v2
+  description: >-
+    Real-time event surface of the Soundtrack GraphQL API, delivered via GraphQL
+    subscriptions over WebSocket. Derived from live introspection of
+    https://api.soundtrackyourbrand.com/v2 (13 subscription fields). Each channel
+    below corresponds to a real GraphQL subscription field; clients open a
+    subscription with the same API-token auth as the HTTP endpoint and receive
+    pushed updates as the subscribed entity changes.
+  x-provenance:
+    generated: '2026-07-21'
+    method: derived
+    source: live GraphQL introspection subscriptionType.fields
+    spec_type: AsyncAPI
+    transport: graphql-ws (WebSocket)
+servers:
+  production:
+    host: api.soundtrackyourbrand.com
+    pathname: /v2
+    protocol: wss
+    description: GraphQL subscriptions endpoint (WebSocket).
+channels:
+  nowPlayingUpdate:
+    address: nowPlayingUpdate
+    description: Pushed when the now-playing track/state of a subscribed sound zone changes.
+    messages:
+      nowPlayingUpdate:
+        name: nowPlayingUpdate
+  playbackUpdate:
+    address: playbackUpdate
+    description: Pushed when playback state (playing/paused/position) changes.
+    messages:
+      playbackUpdate:
+        name: playbackUpdate
+  soundZoneUpdate:
+    address: soundZoneUpdate
+    description: Pushed when a sound zone's configuration/state changes.
+    messages:
+      soundZoneUpdate:
+        name: soundZoneUpdate
+  soundZoneEventForParent:
+    address: soundZoneEventForParent
+    description: Sound zone events aggregated for a parent (account/location).
+    messages:
+      soundZoneEventForParent:
+        name: soundZoneEventForParent
+  deviceUpdate:
+    address: deviceUpdate
+    description: Pushed when a paired device's state changes.
+    messages:
+      deviceUpdate:
+        name: deviceUpdate
+  accountUpdate:
+    address: accountUpdate
+    description: Pushed when an account changes.
+    messages:
+      accountUpdate:
+        name: accountUpdate
+  locationUpdate:
+    address: locationUpdate
+    description: Pushed when a location changes.
+    messages:
+      locationUpdate:
+        name: locationUpdate
+  locationEventForParent:
+    address: locationEventForParent
+    description: Location events aggregated for a parent account.
+    messages:
+      locationEventForParent:
+        name: locationEventForParent
+  musicLibraryUpdate:
+    address: musicLibraryUpdate
+    description: Pushed when the account music library changes.
+    messages:
+      musicLibraryUpdate:
+        name: musicLibraryUpdate
+  libraryUpdate:
+    address: libraryUpdate
+    description: Pushed when library items change.
+    messages:
+      libraryUpdate:
+        name: libraryUpdate
+  playlistUpdate:
+    address: playlistUpdate
+    description: Pushed when a playlist changes.
+    messages:
+      playlistUpdate:
+        name: playlistUpdate
+  scheduleUpdate:
+    address: scheduleUpdate
+    description: Pushed when a schedule changes.
+    messages:
+      scheduleUpdate:
+        name: scheduleUpdate
+  userUpdate:
+    address: userUpdate
+    description: Pushed when a user changes.
+    messages:
+      userUpdate:
+        name: userUpdate
+operations:
+  receiveNowPlayingUpdate:
+    action: receive
+    channel:
+      $ref: '#/channels/nowPlayingUpdate'
+  receivePlaybackUpdate:
+    action: receive
+    channel:
+      $ref: '#/channels/playbackUpdate'
+  receiveSoundZoneUpdate:
+    action: receive
+    channel:
+      $ref: '#/channels/soundZoneUpdate'
+  receiveDeviceUpdate:
+    action: receive
+    channel:
+      $ref: '#/channels/deviceUpdate'
+  receiveScheduleUpdate:
+    action: receive
+    channel:
+      $ref: '#/channels/scheduleUpdate'

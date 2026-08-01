@@ -1,0 +1,39 @@
+generated: '2026-07-21'
+method: searched
+source: https://api.soundtrackyourbrand.com/v2/docs/errors
+docs: https://api.soundtrackyourbrand.com/v2/docs/errors
+format: graphql
+envelope:
+  description: >-
+    GraphQL responses carry a top-level `errors` array alongside any partial
+    `data`. Each error object has a human-readable `message`, an optional `path`
+    and `locations`, and an `extensions` object that carries machine-readable
+    error detail (e.g. an error `code`). See the Soundtrack API "Errors" docs
+    page for the enumerated codes.
+  fields:
+  - errors[].message
+  - errors[].path
+  - errors[].locations
+  - errors[].extensions
+problems:
+- category: authentication
+  description: >-
+    Missing or invalid API token / expired session token. Re-authenticate via
+    the API token in Authorization header or the login mutations.
+- category: authorization
+  description: >-
+    The authenticated token does not have access to the requested account,
+    location or sound zone.
+- category: not-found
+  description: A referenced node (account, location, sound zone, playlist, etc.) does not exist.
+- category: validation
+  description: Invalid arguments supplied to a query or mutation.
+- category: rate-limit
+  description: >-
+    Request exceeded the documented API rate limit; back off and retry.
+    See conventions rate_limiting and the docs "Rate limit" page.
+notes: >-
+  The provider publishes an enumerated error-code reference on the docs "Errors"
+  page (client-rendered Docusaurus); the specific code strings were not captured
+  verbatim in this pass. Categories above are grounded in the documented GraphQL
+  error envelope and the auth/rate-limit surfaces confirmed via the schema.

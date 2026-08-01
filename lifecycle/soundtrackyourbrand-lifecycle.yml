@@ -1,0 +1,21 @@
+generated: '2026-07-21'
+method: searched
+source: https://api.soundtrackyourbrand.com/v2/docs
+versioning:
+  scheme: uri-path
+  current: v2
+  docs: https://api.soundtrackyourbrand.com/v2/docs
+  notes: >-
+    The GraphQL API is served under the /v2 path
+    (https://api.soundtrackyourbrand.com/v2). As a GraphQL schema, additive
+    changes are made in place; fields can be marked deprecated via the GraphQL
+    @deprecated directive.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: >-
+    No standalone deprecation-policy page confirmed. GraphQL field-level
+    deprecation (@deprecated) is the expected mechanism.
+sla:
+  url: null
+status_page: https://status.soundtrack.io/

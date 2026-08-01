@@ -1,0 +1,44 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: live GraphQL introspection — https://api.soundtrackyourbrand.com/v2
+notes: >-
+  No official hosted/remote MCP server was found for Soundtrack. This is a
+  CANDIDATE tool list derived from real Soundtrack GraphQL operations (verified
+  present via introspection) that would map cleanly to MCP tools for an agent
+  controlling in-store music. Not a published server.
+server:
+  name: soundtrackyourbrand
+  transport: http
+  url: null
+tools:
+- name: now_playing
+  description: Get the currently playing track for a sound zone.
+  source_operation: nowPlaying
+- name: play
+  description: Start/resume playback on a sound zone.
+  source_operation: play
+- name: pause
+  description: Pause playback on a sound zone.
+  source_operation: pause
+- name: skip_track
+  description: Skip the current track on a sound zone.
+  source_operation: skipTrack
+- name: set_volume
+  description: Set the volume of a sound zone.
+  source_operation: setVolume
+- name: assign_source
+  description: Assign a music source (playlist/schedule) to a sound zone.
+  source_operation: soundZoneAssignSource
+- name: queue_tracks
+  description: Queue tracks on a sound zone.
+  source_operation: soundZoneQueueTracks
+- name: list_sound_zones
+  description: List sound zones near a location.
+  source_operation: nearbySoundZones
+- name: search_music
+  description: Search the Soundtrack music catalog.
+  source_operation: search
+- name: get_schedule
+  description: Read a sound zone's schedule.
+  source_operation: schedule

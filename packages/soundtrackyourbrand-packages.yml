@@ -1,0 +1,22 @@
+generated: '2026-07-21'
+method: derived
+source: https://github.com/soundtrackyourbrand
+notes: >-
+  Soundtrack does not publish an official versioned client SDK on npm/PyPI/etc.
+  Being a GraphQL API, integrators use a generic GraphQL client. The provider
+  maintains public example applications on GitHub that demonstrate calling the
+  API; these are reference implementations, not installable SDK packages.
+packages: []
+example_apps:
+- name: soundtrack_api-example_app
+  language: javascript
+  url: https://github.com/soundtrackyourbrand/soundtrack_api-example_app
+  description: Example app for Soundtrack API.
+  official: true
+  kind: example
+- name: scheduler-example-app
+  language: typescript
+  url: https://github.com/soundtrackyourbrand/scheduler-example-app
+  description: Example scheduler app built on the Soundtrack API.
+  official: true
+  kind: example

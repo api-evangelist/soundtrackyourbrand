@@ -1,0 +1,53 @@
+generated: '2026-07-21'
+method: searched
+source: https://api.soundtrackyourbrand.com/v2/docs
+docs: https://api.soundtrackyourbrand.com/v2/docs
+api_style: graphql
+transport:
+  protocol: https
+  endpoint: https://api.soundtrackyourbrand.com/v2
+  method: POST
+  content_type: application/json
+  introspection: enabled
+authentication:
+  style: bearer-token
+  header: Authorization
+  ref: authentication/soundtrackyourbrand-authentication.yml
+pagination:
+  style: relay-cursor-connections
+  notes: >-
+    GraphQL Relay-style connections (edges/node/pageInfo with cursor + hasNextPage)
+    are used for list fields such as accounts, locations, sound zones, playlists
+    and library items. Because this is GraphQL, the client selects exactly the
+    fields it needs per query.
+field_selection:
+  style: graphql-native
+  notes: Clients request only the fields they need; no sparse-fieldset or expand params.
+idempotency:
+  supported: false
+  notes: >-
+    No idempotency-key mechanism is documented; GraphQL mutations are the write
+    surface. Not asserting an Idempotency capability.
+rate_limiting:
+  documented: true
+  docs: https://api.soundtrackyourbrand.com/v2/docs/rate-limit
+  style: >-
+    The API documents a rate limit (see the "Rate limit" docs page). Numeric
+    limits/cost values were not captured verbatim in this pass.
+errors:
+  style: graphql
+  ref: errors/soundtrackyourbrand-problem-types.yml
+  notes: >-
+    GraphQL error envelope — a top-level `errors[]` array with `message` and
+    `extensions` alongside partial `data`; see the docs "Errors" page.
+events:
+  style: graphql-subscriptions
+  transport: websocket
+  ref: asyncapi/soundtrackyourbrand-subscriptions-asyncapi.yml
+  notes: >-
+    Real-time updates are delivered via GraphQL subscriptions (13 subscription
+    fields incl. nowPlayingUpdate, playbackUpdate, soundZoneUpdate).
+versioning:
+  scheme: uri-path
+  current: v2
+  ref: lifecycle/soundtrackyourbrand-lifecycle.yml

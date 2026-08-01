@@ -1,0 +1,76 @@
+generated: '2026-07-21'
+method: derived
+source: live GraphQL introspection (root Query/Mutation fields) — https://api.soundtrackyourbrand.com/v2
+notes: >-
+  Entity graph inferred from the Soundtrack GraphQL root operation names
+  (account, location, soundZone, device, playlist, schedule, musicLibrary,
+  nowPlaying, user) and their create/update mutations. Relationships are
+  inferred from operation grouping, not a full field-level schema walk.
+entities:
+- name: Account
+  description: A paying Soundtrack customer/organization; top of the ownership tree.
+  operations: [account, accountUpdate, accountAddUser, accountRegister, accountChangePlan]
+- name: Location
+  description: A physical site belonging to an account (store, venue).
+  operations: [location, locationCreate, locationUpdate, nearbySoundZones]
+- name: SoundZone
+  description: A playback zone within a location; the unit music is played to and controlled on.
+  operations: [soundZone, soundZoneCreate, soundZoneUpdate, soundZoneDelete, soundZoneAssignSource, play, pause, skipTrack, setVolume]
+- name: Device
+  description: A hardware/software player paired to a sound zone.
+  operations: [device, devicePair, soundZonePairDevice, soundZoneUnpair, loginDevice]
+- name: NowPlaying
+  description: The current playback state of a sound zone.
+  operations: [nowPlaying]
+- name: Playlist
+  description: A curated or manual list of tracks; can be scheduled and assigned as a source.
+  operations: [playlist, createPlaylist, createManualPlaylist, updateManualPlaylist]
+- name: Schedule
+  description: Time-based programming that assigns music sources to sound zones.
+  operations: [schedule, createSchedule, updateSchedule, scheduleTemplates]
+- name: MusicLibrary
+  description: The account's saved/blocked tracks and tagged library items.
+  operations: [musicLibrary, addToMusicLibrary, removeFromMusicLibrary, blockTrack]
+- name: User
+  description: A person with roles on an account/location.
+  operations: [user, me, userUpdate, accountUpdateUserRoles, loginUser]
+- name: Track
+  description: A music track (with Album/Artist); the atomic unit of playback and search.
+  operations: [tracks, search, artist, album]
+relationships:
+- from: Account
+  to: Location
+  type: has_many
+  via: locations
+- from: Location
+  to: SoundZone
+  type: has_many
+  via: soundZones
+- from: SoundZone
+  to: Device
+  type: has_one
+  via: device
+- from: SoundZone
+  to: NowPlaying
+  type: has_one
+  via: nowPlaying
+- from: SoundZone
+  to: Schedule
+  type: has_one
+  via: schedule
+- from: Schedule
+  to: Playlist
+  type: has_many
+  via: sources
+- from: Playlist
+  to: Track
+  type: has_many
+  via: tracks
+- from: Account
+  to: User
+  type: has_many
+  via: users
+- from: Account
+  to: MusicLibrary
+  type: has_one
+  via: musicLibrary

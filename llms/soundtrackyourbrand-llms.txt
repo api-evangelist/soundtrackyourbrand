@@ -1,0 +1,42 @@
+# Soundtrack Your Brand
+
+> Soundtrack Your Brand (branded "Soundtrack", soundtrack.io) is a business music
+> streaming service providing licensed background music for physical spaces —
+> retail, restaurants, hotels, gyms. Spun out of Spotify. It exposes a public
+> GraphQL API (api.soundtrackyourbrand.com/v2) to build display, control and
+> monitoring apps: read now-playing state, control playback on sound zones,
+> manage playlists/schedules/libraries, and subscribe to real-time updates. The
+> API is free for paying Soundtrack customers and uses API-token authentication.
+
+## API
+- [Soundtrack API docs](https://api.soundtrackyourbrand.com/v2/docs): GraphQL API reference and guides
+- [The basics / getting started](https://api.soundtrackyourbrand.com/v2/docs/the-basics): auth and first queries
+- [Errors](https://api.soundtrackyourbrand.com/v2/docs/errors): GraphQL error reference
+- [Rate limit](https://api.soundtrackyourbrand.com/v2/docs/rate-limit): rate limiting policy
+- [Subscriptions](https://api.soundtrackyourbrand.com/v2/docs/subscriptions): real-time updates
+- GraphQL endpoint: https://api.soundtrackyourbrand.com/v2 (POST, introspection enabled)
+
+## Artifacts
+- [Authentication](authentication/soundtrackyourbrand-authentication.yml)
+- [Conventions](conventions/soundtrackyourbrand-conventions.yml)
+- [Lifecycle](lifecycle/soundtrackyourbrand-lifecycle.yml)
+- [Error catalog](errors/soundtrackyourbrand-problem-types.yml)
+- [Data model](data-model/soundtrackyourbrand-data-model.yml)
+- [Subscriptions AsyncAPI](asyncapi/soundtrackyourbrand-subscriptions-asyncapi.yml)
+- [MCP candidate tools](mcp/soundtrackyourbrand-mcp.yml)
+- [Conformance](conformance/soundtrackyourbrand-conformance.yml)
+- [Packages / example apps](packages/soundtrackyourbrand-packages.yml)
+
+## Developer
+- [GitHub org](https://github.com/soundtrackyourbrand): example apps (soundtrack_api-example_app, scheduler-example-app)
+- [API token settings](https://app.soundtrack.io/accounts/_/settings/api)
+- [Status page](https://status.soundtrack.io/)
+- [Help center](https://help.soundtrack.io/)
+
+## Company
+- [Website](https://www.soundtrack.io/)
+- [Pricing](https://www.soundtrack.io/pricing/)
+- [Blog](https://www.soundtrack.io/blog/)
+- [Sign up](https://app.soundtrack.io/signup/)
+- [Privacy policy](https://www.soundtrack.io/legal/privacy-policy/)
+- [Legal / terms](https://www.soundtrack.io/legal/)

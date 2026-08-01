@@ -1,0 +1,36 @@
+generated: '2026-07-21'
+method: searched
+source: probed /.well-known/ on API + web hosts
+notes: >-
+  The API host (api.soundtrackyourbrand.com) returns real 404s for every
+  /.well-known/ path. The web/app hosts (www.soundtrack.io, app.soundtrack.io)
+  are single-page apps that return HTTP 200 with an identical-size SPA shell for
+  ANY path, including bogus control paths, so their /.well-known/ 200s are
+  soft-404 catch-alls, not real discovery documents. No genuine well-known
+  documents are published.
+hosts:
+- host: https://api.soundtrackyourbrand.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://www.soundtrack.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    note: soft-404 SPA catch-all (identical to bogus control path); not a real document
+  - path: /.well-known/openid-configuration
+    status: 200
+    note: soft-404 SPA catch-all; not a real document
+- host: https://app.soundtrack.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    note: soft-404 SPA catch-all; not a real document

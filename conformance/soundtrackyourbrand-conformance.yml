@@ -1,0 +1,27 @@
+generated: '2026-07-21'
+method: derived
+source: live GraphQL introspection + docs
+standards:
+- id: graphql
+  conforms: true
+  evidence: >-
+    Public GraphQL API at https://api.soundtrackyourbrand.com/v2; introspection
+    enabled ({__typename} returns Query). 80 queries, 126 mutations, 13
+    subscriptions.
+- id: graphql-subscriptions
+  conforms: true
+  evidence: 13 subscription fields (nowPlayingUpdate, playbackUpdate, soundZoneUpdate, ...)
+- id: relay-connections
+  conforms: true
+  evidence: Relay-style cursor connections used for list fields
+- id: oauth2
+  conforms: false
+  evidence: API-token (bearer) auth; no OAuth2 authorization server documented
+- id: openid-connect
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use the GraphQL error envelope, not application/problem+json
+- id: https-tls
+  conforms: true
+  evidence: See security/soundtrackyourbrand-domain-security.yml (probed)
